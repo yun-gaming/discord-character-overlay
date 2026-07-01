@@ -15,11 +15,11 @@
     Player 01
 =============================================================================*/
 
-img[src*="123456789012345678"] + div{
+img[src*="359978773740912641"] + div{
 
     /* Character */
 
-    --dco-character-image:url("https://raw.githubusercontent.com/yun-gaming/image/main/Feign/Blue.png");
+    --dco-character-image:url("https://raw.githubusercontent.com/yun-gaming/discord-character-overlay/master/images/Feign/blue.png");
 
     /* Position */
 
@@ -40,9 +40,9 @@ img[src*="123456789012345678"] + div{
     Player 02
 =============================================================================*/
 
-img[src*="987654321098765432"] + div{
+img[src*="359978773740912641"] + div{
 
-    --dco-character-image:url("https://raw.githubusercontent.com/yun-gaming/image/main/Feign/Red.png");
+    --dco-character-image:url("https://raw.githubusercontent.com/yun-gaming/discord-character-overlay/master/images/Feign/red.png");
 
     --dco-character-scale:1;
 

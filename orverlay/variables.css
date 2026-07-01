@@ -53,7 +53,7 @@
 
     --name-size:22px;
 
-    --name-weight:bold;
+    --name-weight:700;
 
     --name-color:#FFFFFF;
 
@@ -61,9 +61,11 @@
 
     --name-outline-size:3px;
 
-    --name-offset-top:-24px;
+    --name-offset-top:-20px;
 
-    --name-offset-bottom:24px;
+    --name-offset-bottom:20px;
+
+    --dco-name-shadow:rgba(0,0,0,.5);
 
 
     /*==========================================================
