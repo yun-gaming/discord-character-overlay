@@ -23,11 +23,27 @@ ul[class*="Voice_voiceStates_"]{
 
     gap:var(--character-gap);
 
-    padding:0;
+    padding:0 var(--dco-layout-padding);
 
     margin:0;
 
+    box-sizing:border-box;
+
     overflow:hidden;
+
+}
+li[class*="Voice_voiceState_"]{
+
+    flex:1 1 auto;
+
+    max-width:220px;
+    min-width:70px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-end;
 
 }
 
