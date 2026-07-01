@@ -23,7 +23,7 @@ img[class*="Voice_avatar_"] + div::before{
 
     height:var(--character-height);
 
-    background-image:var(--character-image);
+    background-image:var(--dco-character-image);
 
     background-repeat:no-repeat;
 
@@ -33,10 +33,10 @@ img[class*="Voice_avatar_"] + div::before{
 
     transform:
         translateX(-50%)
-        translateX(var(--character-offset-x))
-        translateY(var(--character-offset-y))
-        scaleX(var(--character-flip))
-        scale(var(--character-scale));
+        translateX(var(--dco-character-offset-x))
+        translateY(var(--dco-character-offset-y))
+        scaleX(var(--dco-character-flip))
+        scale(var(--dco-character-scale));
 
     transform-origin:center bottom;
 

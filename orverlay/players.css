@@ -1,0 +1,55 @@
+/*=============================================================================
+    Discord Character Overlay
+    players.css
+    Version : 0.2.5
+
+    このファイルは Generator により自動生成されます。
+    手動編集は推奨しません。
+
+    GitHub
+    https://github.com/yun-gaming/discord-character-overlay
+=============================================================================*/
+
+
+/*=============================================================================
+    Player 01
+=============================================================================*/
+
+img[src*="123456789012345678"] + div{
+
+    /* Character */
+
+    --dco-character-image:url("https://raw.githubusercontent.com/yun-gaming/image/main/Feign/Blue.png");
+
+    /* Position */
+
+    --dco-character-scale:1;
+
+    --dco-character-offset-x:0px;
+
+    --dco-character-offset-y:0px;
+
+    /* Mirror */
+
+    --dco-character-flip:1;
+
+}
+
+
+/*=============================================================================
+    Player 02
+=============================================================================*/
+
+img[src*="987654321098765432"] + div{
+
+    --dco-character-image:url("https://raw.githubusercontent.com/yun-gaming/image/main/Feign/Red.png");
+
+    --dco-character-scale:1;
+
+    --dco-character-offset-x:0px;
+
+    --dco-character-offset-y:0px;
+
+    --dco-character-flip:1;
+
+}
