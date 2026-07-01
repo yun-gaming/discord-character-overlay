@@ -1,0 +1,159 @@
+/*=============================================================================
+    Discord Character Overlay
+    layout.css
+=============================================================================*/
+
+
+/*==========================================================
+    Voice Container
+==========================================================*/
+
+ul[class*="Voice_voiceStates_"]{
+
+    position:relative;
+
+    width:var(--overlay-width);
+    height:var(--overlay-height);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-end;
+
+    gap:var(--character-gap);
+
+    padding:0;
+
+    margin:0;
+
+    overflow:hidden;
+
+}
+
+
+/*==========================================================
+    Player
+==========================================================*/
+
+li[class*="Voice_voiceState_"]{
+
+    position:relative;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-end;
+
+    flex:1 1 auto;
+
+    min-width:var(--character-min-width);
+
+    max-width:var(--character-max-width);
+
+    height:100%;
+
+    list-style:none;
+
+}
+
+
+/* Discord Avatar 非表示 */
+
+img[class*="Voice_avatar_"]{
+
+    display:none;
+
+}
+
+
+/* Discordデフォルト装飾非表示 */
+
+img[class*="Voice_avatar_"] + div{
+
+    position:relative;
+
+    width:100%;
+
+    height:100%;
+
+}
+
+
+/*==========================================================
+    Character Canvas
+==========================================================*/
+
+img[class*="Voice_avatar_"] + div::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:var(--character-bottom);
+
+    transform:translateX(-50%);
+
+    width:100%;
+
+    height:var(--character-height);
+
+    background-repeat:no-repeat;
+
+    background-position:center bottom;
+
+    background-size:contain;
+
+}
+
+
+/*==========================================================
+    Name
+==========================================================*/
+
+span[class*="Voice_name_"]{
+
+    position:absolute;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    white-space:nowrap;
+
+    font-family:var(--name-font);
+
+    font-size:var(--name-size);
+
+    font-weight:var(--name-weight);
+
+    color:var(--name-color);
+
+    text-shadow:
+        2px 2px 0 var(--name-outline),
+        -2px 2px 0 var(--name-outline),
+        2px -2px 0 var(--name-outline),
+        -2px -2px 0 var(--name-outline);
+
+}
+
+
+/* 奇数 */
+
+li:nth-child(odd) span[class*="Voice_name_"]{
+
+    top:var(--name-offset-top);
+
+}
+
+
+/* 偶数 */
+
+li:nth-child(even) span[class*="Voice_name_"]{
+
+    bottom:var(--name-offset-bottom);
+
+}
