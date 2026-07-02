@@ -1,7 +1,104 @@
-<link rel="stylesheet" href="../overlay/variables.css">
-<link rel="stylesheet" href="../overlay/layout.css">
-<link rel="stylesheet" href="../overlay/character.css">
-<link rel="stylesheet" href="../overlay/overlay.css">
-<img src="../images/Feign/magenta.png">
-<img src="../images/Feign/light green.png">
-<img src="../images/Feign/light blue.png">
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Discord Character Overlay Generator</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<header>
+
+<h1>Discord Character Overlay Generator</h1>
+
+</header>
+<body>
+
+<div class="container">
+
+    <h1>Discord Character Overlay Generator</h1>
+
+    <section class="panel">
+
+        <label>ゲーム</label>
+
+        <select id="gameSelect">
+            <option>読み込み中...</option>
+        </select>
+
+    </section>
+
+
+    <section class="panel"> 
+
+        <label>Discord User ID</label>
+
+        <input
+            id="discordId"
+            type="text"
+            placeholder="123456789012345678">
+
+    </section>
+    
+
+    <section class="panel">
+
+        <label>キャラクター</label>
+
+        <select id="characterSelect"></select>
+
+    </section>
+
+    <section class="preview">
+
+        <img id="preview">
+
+        <p id="previewName"></p>
+
+    </section>
+
+    <button id="addPlayer">
+
+        プレイヤー追加
+
+    </button>
+
+    <hr>
+
+    <h2>登録一覧</h2>
+
+    <ul id="playerList">
+
+    </ul>
+
+    <section class="actions">
+
+    <button>
+
+    <button>
+
+    </section>
+    
+</div>
+
+<div id="loading" hidden>
+
+<span id="loadingMessage">
+
+Loading...
+
+</span>
+
+</div>
+
+<script type="module" src="./js/app.js"></script>
+
+</body>
+
+</html>
