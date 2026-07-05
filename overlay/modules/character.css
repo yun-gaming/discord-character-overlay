@@ -1,0 +1,65 @@
+/*=============================================================================
+    Discord Character Overlay
+    character.css
+    Version : 0.2.0
+=============================================================================*/
+
+
+/*=========================================================================
+    Character Layer
+=========================================================================*/
+
+img[class*="Voice_avatar_"] + div::before{
+
+    filter:var(--dco-shadow);
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:var(--character-bottom);
+
+    width:100%;
+
+    height:var(--character-height);
+
+    background-image:var(--dco-character-image);
+
+    background-repeat:no-repeat;
+
+    background-position:center bottom;
+
+    background-size:contain;
+
+    transform:
+        translateX(-50%)
+        translateX(var(--dco-character-offset-x))
+        translateY(var(--dco-character-offset-y))
+        scaleX(var(--dco-character-flip))
+        scale(var(--dco-character-scale));
+
+    transform-origin:center bottom;
+
+    pointer-events:none;
+
+}
+
+
+/*=========================================================================
+    Effect Layer
+    （Version1では未使用）
+=========================================================================*/
+
+img[class*="Voice_avatar_"] + div::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+}
