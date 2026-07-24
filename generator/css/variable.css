@@ -1,0 +1,62 @@
+/******************************************************************************
+ * variables.css
+ *
+ * Global Variables
+ ******************************************************************************/
+
+:root{
+
+    /*==============================
+        Color
+    ==============================*/
+
+    --color-background:#202225;
+
+    --color-surface:#2f3136;
+
+    --color-border:#555;
+
+    --color-text:#ffffff;
+
+    --color-primary:#5865f2;
+
+    --color-danger:#ed4245;
+
+    /*==============================
+        Font
+    ==============================*/
+
+    --font-family:
+        "Segoe UI",
+        "Yu Gothic UI",
+        sans-serif;
+
+    --font-size-small:14px;
+
+    --font-size-normal:16px;
+
+    --font-size-large:20px;
+
+    /*==============================
+        Layout
+    ==============================*/
+
+    --container-width:900px;
+
+    --spacing-small:8px;
+
+    --spacing-normal:20px;
+
+    --spacing-large:40px;
+
+    --border-radius:8px;
+
+    /*==============================
+        Preview
+    ==============================*/
+
+    --preview-width:220px;
+
+    --preview-height:320px;
+
+}

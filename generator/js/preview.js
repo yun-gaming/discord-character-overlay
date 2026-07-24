@@ -1,9 +1,46 @@
-export function updatePreview(character){
+/******************************************************************************
+ * Discord Character Overlay Generator
+ * preview.js
+ *
+ * Preview Manager
+ ******************************************************************************/
 
-    const preview=document.getElementById("preview");
+import { GITHUB } from "./config.js";
+import { getElement } from "./dom.js";
+import { getCurrentGame } from "./game.js";
 
-    preview.src=
+/*=============================================================================
+    Update Preview
+=============================================================================*/
 
-`https://raw.githubusercontent.com/yun-gaming/image/main/${character.folder}/${character.image}`;
+export function updatePreview() {
+
+    const previewImage = getElement("PREVIEW_IMAGE");
+    const characterSelect = getElement("CHARACTER_SELECT");
+
+    const game = getCurrentGame();
+
+    if (!game) {
+
+        previewImage.removeAttribute("src");
+        return;
+
+    }
+
+    const characterId = characterSelect.value;
+
+    const imageUrl = createImageUrl(game.id, characterId);
+
+    previewImage.src = imageUrl;
+
+}
+
+/*=============================================================================
+    Image URL
+=============================================================================*/
+
+function createImageUrl(gameId, characterId) {
+
+    return `${GITHUB.RAW_ROOT}/${gameId}/${characterId}.png`;
 
 }

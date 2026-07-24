@@ -1,31 +1,111 @@
-// generator/js/config.js
+/******************************************************************************
+ * Discord Character Overlay Generator
+ * config.js
+ *
+ * Application Configuration
+ ******************************************************************************/
 
-export function getImageBaseUrl() {
-    return `https://raw.githubusercontent.com/${CONFIG.github.owner}/${CONFIG.github.repository}/${CONFIG.github.branch}`;
-}
+/*=============================================================================
+    Application
+=============================================================================*/
 
-export const CONFIG = {
+export const APP = {
 
-    generatorVersion: "1.0.0",
+    NAME: "Discord Character Overlay Generator",
 
-    github: {
+    VERSION: "1.0.0-beta",
 
-        owner: "yun-gaming",
+    AUTHOR: "YUN"
 
-        repository: "image",
+};
 
-        branch: "main"
+/*=============================================================================
+    GitHub
+=============================================================================*/
 
-    },
+export const GITHUB = {
 
-    build:{
+    USER: "yun-gaming",
 
-        minify:false,
+    REPOSITORY: "image",
 
-        includeComment:true,
+    BRANCH: "main",
 
-        buildLog:true
+    RAW_ROOT:
+        "https://raw.githubusercontent.com/yun-gaming/image/main"
 
-    }
+};
+
+/*=============================================================================
+    DOM ID
+=============================================================================*/
+
+export const DOM = {
+
+    GAME_SELECT: "gameSelect",
+
+    CHARACTER_SELECT: "characterSelect",
+
+    DISCORD_ID: "discordId",
+
+    PREVIEW_IMAGE: "preview",
+
+    PLAYER_LIST: "playerList",
+
+    ADD_PLAYER_BUTTON: "addPlayer",
+
+    GENERATE_BUTTON: "generateCSS",
+
+    LOADING: "loading"
+
+};
+
+/*=============================================================================
+    Validation
+=============================================================================*/
+
+export const VALIDATION = {
+
+    DISCORD_ID_LENGTH: 19,
+
+    MIN_PLAYERS: 1,
+
+    MAX_PLAYERS: 20
+
+};
+
+/*=============================================================================
+    Preview
+=============================================================================*/
+
+export const PREVIEW = {
+
+    IMAGE_WIDTH: 220,
+
+    IMAGE_HEIGHT: 320
+
+};
+
+/*=============================================================================
+    Build
+=============================================================================*/
+
+export const BUILD = {
+
+    CSS_FILE_NAME: "overlay.css"
+
+};
+
+/*=============================================================================
+    Future
+=============================================================================*/
+
+export const FEATURE = {
+
+    ENABLE_THEME: false,
+
+    ENABLE_PACK: false,
+
+    ENABLE_MULTI_LANGUAGE: false
 
 };

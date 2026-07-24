@@ -1,0 +1,40 @@
+/******************************************************************************
+ * forms.css
+ *
+ * Form Controls
+ ******************************************************************************/
+
+label{
+
+    display:block;
+
+    margin-bottom:var(--spacing-small);
+
+}
+
+select,
+input{
+
+    width:100%;
+
+    padding:10px;
+
+    font-size:var(--font-size-normal);
+
+}
+
+button{
+
+    padding:12px 24px;
+
+    cursor:pointer;
+
+    font-size:var(--font-size-normal);
+
+}
+
+button:hover{
+
+    opacity:.9;
+
+}

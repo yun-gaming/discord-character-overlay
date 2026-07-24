@@ -1,0 +1,56 @@
+/******************************************************************************
+ * base.css
+ *
+ * Base Style
+ ******************************************************************************/
+
+*{
+
+    box-sizing:border-box;
+
+}
+
+html,
+body{
+
+    margin:0;
+
+    padding:0;
+
+}
+
+body{
+
+    background:var(--color-background);
+
+    color:var(--color-text);
+
+    font-family:var(--font-family);
+
+    padding:var(--spacing-large);
+
+}
+
+h1,
+h2,
+h3{
+
+    margin-top:0;
+
+}
+
+img{
+
+    display:block;
+
+    max-width:100%;
+
+}
+
+button,
+input,
+select{
+
+    font-family:inherit;
+
+}

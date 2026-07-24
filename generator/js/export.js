@@ -1,32 +1,51 @@
-import { buildOverlay } from "./build.js";
+/******************************************************************************
+ * Discord Character Overlay Generator
+ * export.js
+ *
+ * Export Manager
+ ******************************************************************************/
 
-export async function exportCSS(playerCSS){
+/*=============================================================================
+    Copy CSS
+=============================================================================*/
 
-    const css = await buildOverlay(playerCSS);
+/**
+ * CSSをクリップボードへコピー
+ *
+ * @param {string} css
+ */
+export async function copyCSS(css) {
+
+    await navigator.clipboard.writeText(css);
+
+}
+
+/*=============================================================================
+    Download CSS
+=============================================================================*/
+
+/**
+ * CSSファイルをダウンロード
+ *
+ * @param {string} css
+ */
+export function downloadCSS(css) {
 
     const blob = new Blob(
         [css],
-        {
-            type:"text/css"
-        }
+        { type: "text/css;charset=utf-8" }
     );
 
     const url = URL.createObjectURL(blob);
 
-    const a = document.createElement("a");
+    const link = document.createElement("a");
 
-    a.href = url;
+    link.href = url;
 
-    a.download = "overlay.css";
+    link.download = "overlay.css";
 
-    a.click();
+    link.click();
 
     URL.revokeObjectURL(url);
 
 }
-
-loading.style.display="block";
-
-await exportCSS(css);
-
-loading.style.display="none";

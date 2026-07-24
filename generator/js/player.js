@@ -1,49 +1,71 @@
-import { exportCSS } from "./export.js";
-const playerCSS = createPlayerCSS(players);
+/******************************************************************************
+ * Discord Character Overlay Generator
+ * player.js
+ *
+ * Player Manager
+ ******************************************************************************/
 
-exportCSS(playerCSS);
+import { getElement } from "./dom.js";
+import { getCurrentGame } from "./game.js";
+import { validateDiscordId } from "./validator.js";
 
-button.addEventListener("click",()=>{
+/*=============================================================================
+    Private
+=============================================================================*/
 
-    players.splice(index,1);
+const players = [];
 
-    refreshPlayerList();
+/*=============================================================================
+    Initialize
+=============================================================================*/
 
-});
+export function initializePlayer() {
 
-if(isDuplicate(players,discordId)){
+    const addButton = getElement("ADD_PLAYER_BUTTON");
 
-    alert("このDiscord UserIDは既に登録されています。");
-
-    return;
-
-}
-
-characterSelect.addEventListener(
-
-"change",
-
-updatePreview
-
-);
-
-export function createPlayerCSS(players){
-
-    let css = "";
-
-    for(const player of players){
-
-        css += `
-img[src*="${player.discordId}"]+div{
-
-    --dco-character-image:
-url("https://raw.githubusercontent.com/yun-gaming/image/main/${player.game}/${player.character}.png");
+    addButton.addEventListener("click", addPlayer);
 
 }
-`;
+
+/*=============================================================================
+    Add Player
+=============================================================================*/
+
+function addPlayer() {
+
+    const discordId = getElement("DISCORD_ID").value.trim();
+    const characterSelect = getElement("CHARACTER_SELECT");
+
+
+    const game = getCurrentGame();
+
+    if (!game) {
+
+        alert("ゲームが選択されていません。");
+        return;
 
     }
 
-    return css;
+    if (!validateDiscordId(discordId)) {
+        alert("Discord User IDが正しくありません。");
+        return;
+
+    }
+
+    const player = {
+
+        discordId: discordId,
+
+        gameId: game.id,
+
+        characterId: characterSelect.value
+
+    };
+
+    players.push(player);
+
+    renderPlayerList();
+
+    clearInput();
 
 }

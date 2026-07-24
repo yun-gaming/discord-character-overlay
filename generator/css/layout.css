@@ -1,0 +1,37 @@
+/******************************************************************************
+ * layout.css
+ *
+ * Page Layout
+ ******************************************************************************/
+
+.container{
+
+    width:min(var(--container-width),100%);
+
+    margin:auto;
+
+}
+
+.panel{
+
+    margin-bottom:var(--spacing-normal);
+
+}
+
+.preview{
+
+    width:var(--preview-width);
+
+    height:var(--preview-height);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border:2px solid var(--color-border);
+
+    margin-bottom:var(--spacing-normal);
+
+}

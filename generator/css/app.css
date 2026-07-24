@@ -1,0 +1,35 @@
+/******************************************************************************
+ * Discord Character Overlay Generator
+ * app.js
+ *
+ * Application Entry Point
+ ******************************************************************************/
+
+import { initializeGame } from "./game.js";
+import { initializePlayer } from "./player.js";
+import { initializePreview } from "./preview.js";
+import { initializeBuilder } from "./build.js";
+
+/*=============================================================================
+    Application Start
+=============================================================================*/
+
+document.addEventListener("DOMContentLoaded", initializeApplication);
+
+/*=============================================================================
+    Initialize
+=============================================================================*/
+
+async function initializeApplication(){
+
+    console.log("Discord Character Overlay Generator");
+
+    initializeGame();
+
+    initializePlayer();
+
+    initializePreview();
+
+    initializeBuilder();
+
+}

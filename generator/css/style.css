@@ -1,140 +1,15 @@
-:root{
-
-    --bg-color:#202225;
-
-    --text-color:#ffffff;
-
-    --panel-width:220px;
-
-    --panel-height:320px;
-
-    --spacing:20px;
-
-    --radius:8px;
-
-}
-background:var(--bg-color);
-
-html,
-body{
-
-    margin:0;
-
-    padding:40px;
-
-    background:#202225;
-
-    color:white;
-
-    font-family:
-        "Yu Gothic UI",
-        sans-serif;
-
-    box-sizing:border-box;
-
-}
-
-.container{
-
-    width:min(900px,100%);
-
-    margin:auto;
-
-}
-
-.panel{
-
-    margin-bottom:20px;
-
-}
-
-label{
-
-    display:block;
-
-    margin-bottom:8px;
-
-}
-
-select,
-input,
-textarea{
-
-    width:100%;
-
-    padding:10px;
-
-    font-size:16px;
-
-}
-
-button{
-
-    padding:12px 24px;
-
-    font-size:16px;
-
-    cursor:pointer;
-
-}
-button:hover{
-
-}
-
-
-#playerList{
-
-    margin-top:20px;
-
-    border:1px solid --border-color;
-
-    padding:20px;
-
-}
-.preview{
-
-    width:220px;
-
-    height:320px;
-
-    border:2px solid --border-color;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    margin-bottom:20px;
-
-}
-
-.preview img{
-
-    max-width:100%;
-
-    max-height:100%;
-
-}
-
-.player-card{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:20px;
-
-    border:1px solid --border-color;
-
-    padding:12px;
-
-    margin-bottom:10px;
-
-}
-
-#loading{
-
-    display:none;
-
-}
+/******************************************************************************
+ * Discord Character Overlay Generator
+ * style.css
+ *
+ * CSS Entry Point
+ ******************************************************************************/
+
+@import url("./variables.css");
+@import url("./base.css");
+@import url("./layout.css");
+@import url("./forms.css");
+@import url("./preview.css");
+@import url("./player-list.css");
+@import url("./loading.css");
+@import url("./responsive.css");

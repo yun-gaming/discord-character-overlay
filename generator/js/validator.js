@@ -1,23 +1,54 @@
-export function validateDiscordId(id){
+/******************************************************************************
+ * Discord Character Overlay Generator
+ * validator.js
+ *
+ * Validation
+ ******************************************************************************/
 
-    if(!/^[0-9]{17,20}$/.test(id)){
+import { VALIDATION } from "./config.js";
 
-        alert("Discord UserIDが正しくありません。");
+/*=============================================================================
+    Discord ID
+=============================================================================*/
+
+/**
+ * Discord User IDを検証する
+ *
+ * @param {string} discordId
+ * @returns {boolean}
+ */
+export function validateDiscordId(discordId) {
+
+    if (!discordId) {
 
         return false;
 
     }
 
-    return true;
+    if (!/^\d+$/.test(discordId)) {
+
+        return false;
+
+    }
+
+    return discordId.length >= 17 &&
+           discordId.length <= VALIDATION.DISCORD_ID_LENGTH;
 
 }
 
-export function isDuplicate(players,id){
+/*=============================================================================
+    Player Count
+=============================================================================*/
 
-    return players.some(
+/**
+ * プレイヤー人数を検証する
+ *
+ * @param {number} count
+ * @returns {boolean}
+ */
+export function validatePlayerCount(count) {
 
-        player=>player.discordId===id
-
-    );
+    return count >= VALIDATION.MIN_PLAYERS &&
+           count <= VALIDATION.MAX_PLAYERS;
 
 }
