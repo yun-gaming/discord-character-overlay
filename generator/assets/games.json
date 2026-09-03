@@ -1,31 +1,24 @@
 [
     {
-        "id":"feign",
-
-        "name":"Feign",
-
-        "folder":"Feign",
-
-        "characters":[
-
+        "id": "feign",
+        "name": "Feign",
+        "folder": "Feign/characters",
+        "characters": [
             {
-                "id":"blue",
-                "name":"青",
-                "image":"blue.png"
+                "id": "blue",
+                "name": "青",
+                "image": "blue.png"
             },
-
             {
-                "id":"red",
-                "name":"赤",
-                "image":"red.png"
+                "id": "red",
+                "name": "赤",
+                "image": "red.png"
             },
-
             {
-                "id":"green",
-                "name":"緑",
-                "image":"green.png"
+                "id": "green",
+                "name": "緑",
+                "image": "green.png"
             }
-
         ]
     }
 ]

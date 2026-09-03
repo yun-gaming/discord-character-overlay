@@ -1,4 +1,3 @@
-
 /******************************************************************************
  * Discord Character Overlay Generator
  * loader.js
@@ -7,6 +6,7 @@
  ******************************************************************************/
 
 import { GITHUB } from "./config.js";
+
 
 /*=============================================================================
     JSON Loader
@@ -24,7 +24,9 @@ export async function loadJson(path) {
 
     if (!response.ok) {
 
-        throw new Error(`Failed to load JSON : ${path}`);
+        throw new Error(
+            `JSONファイルの読み込みに失敗しました: ${path} (${response.status})`
+        );
 
     }
 
@@ -32,18 +34,21 @@ export async function loadJson(path) {
 
 }
 
+
 /*=============================================================================
     GitHub Loader
 =============================================================================*/
 
 /**
- * GitHub RAWからJSONを取得
+ * GitHub RAWからJSONファイルを読み込む
  *
  * @param {string} file
  * @returns {Promise<Object>}
  */
 export async function loadGithubJson(file) {
 
-    return loadJson(`${GITHUB.RAW_ROOT}/${file}`);
+    const path = `${GITHUB.RAW_ROOT}/${file}`;
+
+    return await loadJson(path);
 
 }

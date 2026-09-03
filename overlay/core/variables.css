@@ -32,6 +32,19 @@
     /* 高さ */
     --character-height:420px;
 
+    /* キャラクター位置調整 */
+    --dco-character-offset-x:0px;
+    --dco-character-offset-y:0px;
+
+    /* キャラクター倍率 */
+    --dco-character-scale:1;
+
+    /* 左右反転
+       1  = 通常
+       -1 = 反転
+    */
+    --dco-character-flip:1;
+
 
     /*==========================================================
         Layout
@@ -78,7 +91,7 @@
 
     --talk-speed:160ms;
 
-    --idle-speed:250ms;
+    /*--idle-speed:250ms;*/
 
 
     /*==========================================================
@@ -88,6 +101,14 @@
     --shadow-opacity:0.30;
 
     --shadow-blur:12px;
+
+    --dco-shadow:
+        drop-shadow(
+            0
+            0
+            var(--shadow-blur)
+            rgba(0,0,0,var(--shadow-opacity))
+        );
 
 
     /*==========================================================

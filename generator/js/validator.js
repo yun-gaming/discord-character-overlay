@@ -7,6 +7,7 @@
 
 import { VALIDATION } from "./config.js";
 
+
 /*=============================================================================
     Discord ID
 =============================================================================*/
@@ -18,6 +19,12 @@ import { VALIDATION } from "./config.js";
  * @returns {boolean}
  */
 export function validateDiscordId(discordId) {
+
+    if (typeof discordId !== "string") {
+
+        return false;
+
+    }
 
     if (!discordId) {
 
@@ -31,10 +38,13 @@ export function validateDiscordId(discordId) {
 
     }
 
-    return discordId.length >= 17 &&
-           discordId.length <= VALIDATION.DISCORD_ID_LENGTH;
+    return (
+        discordId.length >= 17 &&
+        discordId.length <= VALIDATION.DISCORD_ID_LENGTH
+    );
 
 }
+
 
 /*=============================================================================
     Player Count
@@ -48,7 +58,15 @@ export function validateDiscordId(discordId) {
  */
 export function validatePlayerCount(count) {
 
-    return count >= VALIDATION.MIN_PLAYERS &&
-           count <= VALIDATION.MAX_PLAYERS;
+    if (!Number.isInteger(count)) {
+
+        return false;
+
+    }
+
+    return (
+        count >= VALIDATION.MIN_PLAYERS &&
+        count <= VALIDATION.MAX_PLAYERS
+    );
 
 }

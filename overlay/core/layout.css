@@ -32,21 +32,6 @@ ul[class*="Voice_voiceStates_"]{
     overflow:hidden;
 
 }
-li[class*="Voice_voiceState_"]{
-
-    flex:1 1 auto;
-
-    max-width:220px;
-    min-width:70px;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:flex-end;
-
-}
-
 
 /*==========================================================
     Player
@@ -93,83 +78,5 @@ img[class*="Voice_avatar_"] + div{
     width:100%;
 
     height:100%;
-
-}
-
-
-/*==========================================================
-    Character Canvas
-==========================================================*/
-
-img[class*="Voice_avatar_"] + div::before{
-
-    content:"";
-
-    position:absolute;
-
-    left:50%;
-
-    bottom:var(--character-bottom);
-
-    transform:translateX(-50%);
-
-    width:100%;
-
-    height:var(--character-height);
-
-    background-repeat:no-repeat;
-
-    background-position:center bottom;
-
-    background-size:contain;
-
-}
-
-
-/*==========================================================
-    Name
-==========================================================*/
-
-span[class*="Voice_name_"]{
-
-    position:absolute;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-    white-space:nowrap;
-
-    font-family:var(--name-font);
-
-    font-size:var(--name-size);
-
-    font-weight:var(--name-weight);
-
-    color:var(--name-color);
-
-    text-shadow:
-        2px 2px 0 var(--name-outline),
-        -2px 2px 0 var(--name-outline),
-        2px -2px 0 var(--name-outline),
-        -2px -2px 0 var(--name-outline);
-
-}
-
-
-/* 奇数 */
-
-li:nth-child(odd) span[class*="Voice_name_"]{
-
-    top:var(--name-offset-top);
-
-}
-
-
-/* 偶数 */
-
-li:nth-child(even) span[class*="Voice_name_"]{
-
-    bottom:var(--name-offset-bottom);
 
 }

@@ -1,8 +1,9 @@
 /*=============================================================================
     Discord Character Overlay
     theme.css
-    Version : 0.5.5
+    Version : 1.0.0
 =============================================================================*/
+
 
 /*==========================================================
     Default Theme
@@ -12,21 +13,24 @@
 
     /* Name */
 
-    --dco-name-color:#ffffff;
+    --name-color:#ffffff;
 
-    --dco-name-outline:#000000;
+    --name-outline:#000000;
+
 
     /* Character */
 
     --dco-character-scale:1;
 
+
     /* Animation */
 
-    --dco-talk-scale:1.08;
+    --talk-scale:1.08;
 
-    --dco-talk-offset:-10px;
+    --talk-y:-10px;
 
-    --dco-talk-speed:160ms;
+    --talk-speed:160ms;
+
 
     /* Shadow */
 

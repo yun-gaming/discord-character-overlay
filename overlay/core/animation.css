@@ -1,7 +1,7 @@
 /*=============================================================================
     Discord Character Overlay
     animation.css
-    Version : 0.3.0
+    Version : 1.0.0
 =============================================================================*/
 
 
@@ -31,17 +31,27 @@ img[class*="Voice_avatarSpeaking_"] + div::before{
 
         translateX(var(--dco-character-offset-x))
 
-        translateY(calc(var(--dco-character-offset-y) + var(--talk-y)))
+        translateY(
+            calc(
+                var(--dco-character-offset-y)
+                +
+                var(--talk-y)
+            )
+        )
 
         scaleX(var(--dco-character-flip))
 
-        scale(calc(var(--dco-character-scale) * var(--talk-scale)));
+        scale(
+            calc(
+                var(--dco-character-scale)
+                *
+                var(--talk-scale)
+            )
+        );
 
     filter:
-
         brightness(1.08)
-
-        drop-shadow(0 8px 12px rgba(0,0,0,.25));
+        var(--dco-shadow);
 
 }
 
@@ -50,10 +60,10 @@ img[class*="Voice_avatarSpeaking_"] + div::before{
     Idle
 =========================================================================*/
 
-img:not([class*="Voice_avatarSpeaking_"]) + div::before{
+img[class*="Voice_avatar_"]:not([class*="Voice_avatarSpeaking_"]) + div::before{
 
     filter:
-
-        brightness(1);
+        brightness(1)
+        var(--dco-shadow);
 
 }

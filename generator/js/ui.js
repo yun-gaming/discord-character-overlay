@@ -5,7 +5,9 @@
  * User Interface Manager
  ******************************************************************************/
 
+import { DOM } from "./config.js";
 import { getElement } from "./dom.js";
+
 
 /*=============================================================================
     Loading
@@ -16,18 +18,26 @@ import { getElement } from "./dom.js";
  */
 export function showLoading() {
 
-    getElement("LOADING").style.display = "block";
+    const loading =
+        getElement(DOM.LOADING);
+
+    loading.hidden = false;
 
 }
+
 
 /**
  * ローディング非表示
  */
 export function hideLoading() {
 
-    getElement("LOADING").style.display = "none";
+    const loading =
+        getElement(DOM.LOADING);
+
+    loading.hidden = true;
 
 }
+
 
 /*=============================================================================
     Message
@@ -44,6 +54,7 @@ export function showMessage(message) {
 
 }
 
+
 /**
  * エラーメッセージ表示
  *
@@ -51,9 +62,12 @@ export function showMessage(message) {
  */
 export function showError(message) {
 
-    alert(`Error\n\n${message}`);
+    alert(
+        `Error\n\n${message}`
+    );
 
 }
+
 
 /*=============================================================================
     Button
@@ -66,9 +80,11 @@ export function showError(message) {
  */
 export function enableButton(id) {
 
-    getElement(id).disabled = false;
+    getElement(id).disabled =
+        false;
 
 }
+
 
 /**
  * ボタンを無効化
@@ -77,9 +93,11 @@ export function enableButton(id) {
  */
 export function disableButton(id) {
 
-    getElement(id).disabled = true;
+    getElement(id).disabled =
+        true;
 
 }
+
 
 /*=============================================================================
     Clear Form
@@ -90,6 +108,8 @@ export function disableButton(id) {
  */
 export function clearPlayerForm() {
 
-    getElement("DISCORD_ID").value = "";
+    getElement(
+        DOM.DISCORD_ID
+    ).value = "";
 
 }

@@ -13,91 +13,184 @@
     <link rel="stylesheet" href="css/style.css">
 
 </head>
-<header>
 
-<h1>Discord Character Overlay Generator</h1>
-
-</header>
 <body>
 
-<div class="container">
+    <!-- ================================================================
+         Header
+    ================================================================= -->
 
-    <h1>Discord Character Overlay Generator</h1>
+    <header>
 
-    <section class="panel">
+        <h1>Discord Character Overlay Generator</h1>
 
-        <label>ゲーム</label>
-
-        <select id="gameSelect">
-            <option>読み込み中...</option>
-        </select>
-
-    </section>
+    </header>
 
 
-    <section class="panel"> 
+    <!-- ================================================================
+         Main
+    ================================================================= -->
 
-        <label>Discord User ID</label>
+    <main class="container">
 
-        <input
-            id="discordId"
-            type="text"
-            placeholder="123456789012345678">
 
-    </section>
-    
+        <!-- Game -->
 
-    <section class="panel">
+        <section class="panel">
 
-        <label>キャラクター</label>
+            <label for="gameSelect">
 
-        <select id="characterSelect"></select>
+                ゲーム
 
-    </section>
+            </label>
 
-    <section class="preview">
+            <select id="gameSelect">
 
-        <img id="preview">
+                <option value="">
 
-        <p id="previewName"></p>
+                    読み込み中...
 
-    </section>
+                </option>
 
-    <button id="addPlayer">
+            </select>
 
-        プレイヤー追加
+        </section>
 
-    </button>
 
-    <hr>
+        <!-- Discord User ID -->
 
-    <h2>登録一覧</h2>
+        <section class="panel">
 
-    <ul id="playerList">
+            <label for="discordId">
 
-    </ul>
+                Discord User ID
 
-    <section class="actions">
+            </label>
 
-    <button>
+            <input
+                id="discordId"
+                type="text"
+                placeholder="123456789012345678"
+                autocomplete="off">
 
-    <button>
+        </section>
 
-    </section>
-    
-</div>
 
-<div id="loading" hidden>
+        <!-- Character -->
 
-<span id="loadingMessage">
+        <section class="panel">
 
-Loading...
+            <label for="characterSelect">
 
-</span>
+                キャラクター
 
-</div>
+            </label>
 
-<script type="module" src="./js/app.js"></script>
+            <select id="characterSelect">
+
+                <option value="">
+
+                    キャラクターを選択してください
+
+                </option>
+
+            </select>
+
+        </section>
+
+
+        <!-- Preview -->
+
+        <section class="preview">
+
+            <img
+                id="preview"
+                src=""
+                alt="キャラクタープレビュー">
+
+            <p id="previewName"></p>
+
+        </section>
+
+
+        <!-- Add Player -->
+
+        <section class="actions">
+
+            <button
+                id="addPlayer"
+                type="button">
+
+                プレイヤー追加
+
+            </button>
+
+        </section>
+
+
+        <hr>
+
+
+        <!-- Player List -->
+
+        <section>
+
+            <h2>登録一覧</h2>
+
+            <ul id="playerList"></ul>
+
+        </section>
+
+
+        <!-- Generate -->
+
+        <section class="actions">
+
+            <button
+                id="generateCSS"
+                type="button">
+
+                CSSをコピー
+
+            </button>
+
+            <button
+                id="downloadCSS"
+                type="button">
+
+                CSSをダウンロード
+
+            </button>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- ================================================================
+         Loading
+    ================================================================= -->
+
+    <div id="loading" hidden>
+
+        <span id="loadingMessage">
+
+            Loading...
+
+        </span>
+
+    </div>
+
+
+    <!-- ================================================================
+         JavaScript
+    ================================================================= -->
+
+    <script
+        type="module"
+        src="./js/app.js">
+    </script>
 
 </body>
 

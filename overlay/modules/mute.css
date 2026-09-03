@@ -1,8 +1,9 @@
 /*=============================================================================
     Discord Character Overlay
     mute.css
-    Version : 0.5.0
+    Version : 1.0.0
 =============================================================================*/
+
 
 /*==========================================================
     Transition
@@ -12,39 +13,46 @@ img[class*="Voice_avatar_"] + div::before,
 img[class*="Voice_avatar_"] + div::after{
 
     transition:
-        opacity var(--dco-state-transition),
-        filter var(--dco-state-transition);
+        transform var(--talk-speed) ease,
+        filter var(--dco-state-transition) ease,
+        opacity var(--dco-state-transition) ease;
 
 }
+
 
 /*==========================================================
     Muted
 ==========================================================*/
 
 li[class*="Voice_voiceState_"][class*="muted"]
-img + div::before,
+img[class*="Voice_avatar_"] + div::before,
 
 li[class*="Voice_voiceState_"][class*="muted"]
-img + div::after{
+img[class*="Voice_avatar_"] + div::after{
 
     opacity:var(--dco-muted-opacity);
 
-    filter:saturate(var(--dco-muted-saturate));
+    filter:
+        saturate(var(--dco-muted-saturate))
+        var(--dco-shadow);
 
 }
+
 
 /*==========================================================
     Deafen
 ==========================================================*/
 
 li[class*="Voice_voiceState_"][class*="deafen"]
-img + div::before,
+img[class*="Voice_avatar_"] + div::before,
 
 li[class*="Voice_voiceState_"][class*="deafen"]
-img + div::after{
+img[class*="Voice_avatar_"] + div::after{
 
     opacity:var(--dco-deafen-opacity);
 
-    filter:saturate(var(--dco-deafen-saturate));
+    filter:
+        saturate(var(--dco-deafen-saturate))
+        var(--dco-shadow);
 
 }

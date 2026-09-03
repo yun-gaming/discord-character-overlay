@@ -19,6 +19,7 @@ export const APP = {
 
 };
 
+
 /*=============================================================================
     GitHub
 =============================================================================*/
@@ -27,14 +28,17 @@ export const GITHUB = {
 
     USER: "yun-gaming",
 
-    REPOSITORY: "image",
+    REPOSITORY:
+        "discord-character-overlay",
 
-    BRANCH: "main",
+    BRANCH:
+        "main",
 
     RAW_ROOT:
-        "https://raw.githubusercontent.com/yun-gaming/image/main"
+        "https://raw.githubusercontent.com/yun-gaming/discord-character-overlay/main/images"
 
 };
+
 
 /*=============================================================================
     DOM ID
@@ -50,15 +54,22 @@ export const DOM = {
 
     PREVIEW_IMAGE: "preview",
 
+    PREVIEW_NAME: "previewName",
+
     PLAYER_LIST: "playerList",
 
     ADD_PLAYER_BUTTON: "addPlayer",
 
     GENERATE_BUTTON: "generateCSS",
 
-    LOADING: "loading"
+    DOWNLOAD_BUTTON: "downloadCSS",
+
+    LOADING: "loading",
+
+    LOADING_MESSAGE: "loadingMessage"
 
 };
+
 
 /*=============================================================================
     Validation
@@ -74,6 +85,7 @@ export const VALIDATION = {
 
 };
 
+
 /*=============================================================================
     Preview
 =============================================================================*/
@@ -86,6 +98,7 @@ export const PREVIEW = {
 
 };
 
+
 /*=============================================================================
     Build
 =============================================================================*/
@@ -95,6 +108,7 @@ export const BUILD = {
     CSS_FILE_NAME: "overlay.css"
 
 };
+
 
 /*=============================================================================
     Future

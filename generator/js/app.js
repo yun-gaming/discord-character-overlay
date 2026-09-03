@@ -5,87 +5,119 @@
  * Application Entry Point
  ******************************************************************************/
 
+import { DOM } from "./config.js";
+
 import { initializeGame } from "./game.js";
 import { initializePlayer } from "./player.js";
 
 import { buildCSS } from "./build.js";
-import { copyCSS } from "./export.js";
 
 import {
+    copyCSS,
+    downloadCSS
+} from "./export.js";
 
+import {
     showLoading,
-
     hideLoading,
-
     showMessage,
-
     showError
-
 } from "./ui.js";
 
 import { getElement } from "./dom.js";
+
 
 /*=============================================================================
     Initialize
 =============================================================================*/
 
+/**
+ * アプリケーションを初期化する
+ */
 async function initialize() {
 
-    await initializeGame();
+    try {
 
-    initializePlayer();
+        await initializeGame();
 
-    registerEvents();
+        initializePlayer();
+
+        registerEvents();
+
+    }
+    catch (error) {
+
+        console.error(error);
+
+        showError(
+            error.message
+        );
+
+    }
 
 }
+
 
 /*=============================================================================
     Register Events
 =============================================================================*/
 
+/**
+ * アプリケーションイベントを登録する
+ */
 function registerEvents() {
 
-    getElement("GENERATE_BUTTON")
+    getElement(
+        DOM.GENERATE_BUTTON
+    ).addEventListener(
+        "click",
+        onGenerateCSS
+    );
 
-        .addEventListener(
 
-            "click",
-
-            onGenerateCSS
-
-        );
+    getElement(
+        DOM.DOWNLOAD_BUTTON
+    ).addEventListener(
+        "click",
+        onDownloadCSS
+    );
 
 }
+
 
 /*=============================================================================
     Generate CSS
 =============================================================================*/
 
+/**
+ * CSSを生成しクリップボードへコピーする
+ */
 async function onGenerateCSS() {
 
     try {
 
         showLoading();
 
-        const css = await buildCSS();
+        const css =
+            await buildCSS();
 
         await copyCSS(css);
 
         showMessage(
-
             "CSSをクリップボードへコピーしました。"
-
         );
 
     }
-    catch(error){
+    catch (error) {
 
         console.error(error);
 
-        showError(error.message);
+        showError(
+            error.message
+        );
 
     }
-    finally{
+    finally {
 
         hideLoading();
 
@@ -93,14 +125,53 @@ async function onGenerateCSS() {
 
 }
 
+
+/*=============================================================================
+    Download CSS
+=============================================================================*/
+
+/**
+ * CSSを生成しファイルとしてダウンロードする
+ */
+async function onDownloadCSS() {
+
+    try {
+
+        showLoading();
+
+        const css =
+            await buildCSS();
+
+        downloadCSS(css);
+
+        showMessage(
+            "CSSファイルをダウンロードしました。"
+        );
+
+    }
+    catch (error) {
+
+        console.error(error);
+
+        showError(
+            error.message
+        );
+
+    }
+    finally {
+
+        hideLoading();
+
+    }
+
+}
+
+
 /*=============================================================================
     Startup
 =============================================================================*/
 
 window.addEventListener(
-
     "DOMContentLoaded",
-
     initialize
-
 );
