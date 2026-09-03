@@ -32,7 +32,7 @@ export const GITHUB = {
         "discord-character-overlay",
 
     BRANCH:
-        "main",
+        "master",
 
     RAW_ROOT:
         "https://raw.githubusercontent.com/yun-gaming/discord-character-overlay/master/images"
