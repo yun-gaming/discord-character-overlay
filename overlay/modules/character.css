@@ -9,9 +9,16 @@
     Character Layer
 =========================================================================*/
 
-img[class*="Voice_avatar_"] + div::before{
+.voice_state{
 
-    filter:var(--dco-shadow);
+    position:relative;
+
+    overflow:visible;
+
+}
+
+
+.voice_state::before{
 
     content:"";
 
@@ -25,13 +32,17 @@ img[class*="Voice_avatar_"] + div::before{
 
     height:var(--character-height);
 
-    background-image:var(--dco-character-image);
+    background-image:
+        var(--dco-character-image);
 
-    background-repeat:no-repeat;
+    background-repeat:
+        no-repeat;
 
-    background-position:center bottom;
+    background-position:
+        center bottom;
 
-    background-size:contain;
+    background-size:
+        contain;
 
     transform:
         translateX(-50%)
@@ -40,9 +51,28 @@ img[class*="Voice_avatar_"] + div::before{
         scaleX(var(--dco-character-flip))
         scale(var(--dco-character-scale));
 
-    transform-origin:center bottom;
+    transform-origin:
+        center bottom;
 
-    pointer-events:none;
+    filter:
+        var(--dco-shadow);
+
+    pointer-events:
+        none;
+
+    z-index:
+        10;
+
+}
+
+
+/*=========================================================================
+    Discord Avatar
+=========================================================================*/
+
+.voice_avatar{
+
+    visibility:hidden;
 
 }
 
@@ -52,7 +82,7 @@ img[class*="Voice_avatar_"] + div::before{
     （Version1では未使用）
 =========================================================================*/
 
-img[class*="Voice_avatar_"] + div::after{
+.voice_state::after{
 
     content:"";
 
@@ -61,5 +91,7 @@ img[class*="Voice_avatar_"] + div::after{
     inset:0;
 
     pointer-events:none;
+
+    z-index:11;
 
 }
