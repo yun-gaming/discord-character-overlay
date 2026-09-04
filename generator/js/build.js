@@ -176,21 +176,20 @@ async function loadCss(path) {
  *
  * @returns {string}
  */
-function buildPlayerRules() {
+async function buildPlayerRules() {
 
     const players =
         getPlayers();
 
-    let css = "";
+    const rules =
+        await Promise.all(
+            players.map(
+                player =>
+                    createPlayerRule(player)
+            )
+        );
 
-    players.forEach(player => {
-
-        css +=
-            createPlayerRule(player);
-
-    });
-
-    return css;
+    return rules.join("\n\n");
 
 }
 
@@ -201,15 +200,21 @@ function buildPlayerRules() {
  * @param {Object} player
  * @returns {string}
  */
-function createPlayerRule(player) {
+async function createPlayerRule(player) {
 
     const imageUrl =
         createImageUrl(player);
 
-    return `
-img[src*="${escapeCSS(player.discordId)}"] + div {
+    const imageData =
+        await imageUrlToDataUrl(
+            imageUrl
+        );
 
-    --dco-character-image:url("${imageUrl}");
+    return `
+.voice_state[data-userid="${escapeCSS(player.discordId)}"] {
+
+    --dco-character-image:
+        url("${imageData}");
 
     --dco-character-scale:1;
 
@@ -220,7 +225,6 @@ img[src*="${escapeCSS(player.discordId)}"] + div {
     --dco-character-flip:1;
 
 }`;
-
 }
 
 
@@ -317,5 +321,50 @@ function escapeCSS(value) {
             /"/g,
             '\\"'
         );
+
+}
+
+/*==============================================================================
+    URL Base64化
+==============================================================================*/
+async function imageUrlToDataUrl(url) {
+
+    const response =
+        await fetch(url);
+
+    if (!response.ok) {
+
+        throw new Error(
+            `画像の読み込みに失敗しました: ${url} (${response.status})`
+        );
+
+    }
+
+    const blob =
+        await response.blob();
+
+    return await blobToDataUrl(blob);
+
+}
+
+
+function blobToDataUrl(blob) {
+
+    return new Promise(
+        (resolve, reject) => {
+
+            const reader =
+                new FileReader();
+
+            reader.onload =
+                () => resolve(reader.result);
+
+            reader.onerror =
+                () => reject(reader.error);
+
+            reader.readAsDataURL(blob);
+
+        }
+    );
 
 }
