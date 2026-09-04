@@ -39,7 +39,7 @@ export async function buildCSS() {
 
         await buildMute(),
 
-        buildPlayerRules(),
+        await buildPlayerRules(),
 
         buildFooter()
 
@@ -174,7 +174,7 @@ async function loadCss(path) {
 /**
  * 登録プレイヤーごとのCSSを生成する
  *
- * @returns {string}
+ * @returns {Promise<string>}
  */
 async function buildPlayerRules() {
 
@@ -198,14 +198,14 @@ async function buildPlayerRules() {
  * プレイヤー1人分のCSSを生成する
  *
  * @param {Object} player
- * @returns {string}
+ * @returns {Promise<string>}
  */
 async function createPlayerRule(player) {
 
     const imageUrl =
         createImageUrl(player);
 
-    const imageData =
+    const imageDataUrl =
         await imageUrlToDataUrl(
             imageUrl
         );
@@ -214,7 +214,7 @@ async function createPlayerRule(player) {
 .voice_state[data-userid="${escapeCSS(player.discordId)}"] {
 
     --dco-character-image:
-        url("${imageData}");
+        url("${imageDataUrl}");
 
     --dco-character-scale:1;
 
@@ -225,6 +225,7 @@ async function createPlayerRule(player) {
     --dco-character-flip:1;
 
 }`;
+
 }
 
 
@@ -279,6 +280,81 @@ function createImageUrl(player) {
 
 
 /*=============================================================================
+    Image Data URL
+=============================================================================*/
+
+/**
+ * 画像URLをData URIへ変換する
+ *
+ * @param {string} url
+ * @returns {Promise<string>}
+ */
+async function imageUrlToDataUrl(url) {
+
+    const response =
+        await fetch(url);
+
+    if (!response.ok) {
+
+        throw new Error(
+            `画像の読み込みに失敗しました: ${url} (${response.status})`
+        );
+
+    }
+
+    const blob =
+        await response.blob();
+
+    return await blobToDataUrl(
+        blob
+    );
+
+}
+
+
+/**
+ * BlobをData URIへ変換する
+ *
+ * @param {Blob} blob
+ * @returns {Promise<string>}
+ */
+function blobToDataUrl(blob) {
+
+    return new Promise(
+        (resolve, reject) => {
+
+            const reader =
+                new FileReader();
+
+            reader.onload =
+                () => {
+
+                    resolve(
+                        reader.result
+                    );
+
+                };
+
+            reader.onerror =
+                () => {
+
+                    reject(
+                        reader.error
+                    );
+
+                };
+
+            reader.readAsDataURL(
+                blob
+            );
+
+        }
+    );
+
+}
+
+
+/*=============================================================================
     Footer
 =============================================================================*/
 
@@ -321,50 +397,5 @@ function escapeCSS(value) {
             /"/g,
             '\\"'
         );
-
-}
-
-/*==============================================================================
-    URL Base64化
-==============================================================================*/
-async function imageUrlToDataUrl(url) {
-
-    const response =
-        await fetch(url);
-
-    if (!response.ok) {
-
-        throw new Error(
-            `画像の読み込みに失敗しました: ${url} (${response.status})`
-        );
-
-    }
-
-    const blob =
-        await response.blob();
-
-    return await blobToDataUrl(blob);
-
-}
-
-
-function blobToDataUrl(blob) {
-
-    return new Promise(
-        (resolve, reject) => {
-
-            const reader =
-                new FileReader();
-
-            reader.onload =
-                () => resolve(reader.result);
-
-            reader.onerror =
-                () => reject(reader.error);
-
-            reader.readAsDataURL(blob);
-
-        }
-    );
 
 }
