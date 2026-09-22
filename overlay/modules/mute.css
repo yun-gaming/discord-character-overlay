@@ -5,32 +5,27 @@
 =============================================================================*/
 
 
-/*==========================================================
-    Transition
-==========================================================*/
+/*=========================================================================
+    Character State Transition
+=========================================================================*/
 
-img[class*="Voice_avatar_"] + div::before,
-img[class*="Voice_avatar_"] + div::after{
+.voice_state::before {
 
     transition:
-        transform var(--talk-speed) ease,
         filter var(--dco-state-transition) ease,
         opacity var(--dco-state-transition) ease;
 
 }
 
 
-/*==========================================================
-    Muted
-==========================================================*/
+/*=========================================================================
+    Microphone Mute
+=========================================================================*/
 
-li[class*="Voice_voiceState_"][class*="muted"]
-img[class*="Voice_avatar_"] + div::before,
+.voice_state.self_mute::before {
 
-li[class*="Voice_voiceState_"][class*="muted"]
-img[class*="Voice_avatar_"] + div::after{
-
-    opacity:var(--dco-muted-opacity);
+    opacity:
+        var(--dco-muted-opacity);
 
     filter:
         saturate(var(--dco-muted-saturate))
@@ -39,20 +34,12 @@ img[class*="Voice_avatar_"] + div::after{
 }
 
 
-/*==========================================================
-    Deafen
-==========================================================*/
+/*=========================================================================
+    Normal State
+=========================================================================*/
 
-li[class*="Voice_voiceState_"][class*="deafen"]
-img[class*="Voice_avatar_"] + div::before,
+.voice_state:not(.self_mute)::before {
 
-li[class*="Voice_voiceState_"][class*="deafen"]
-img[class*="Voice_avatar_"] + div::after{
-
-    opacity:var(--dco-deafen-opacity);
-
-    filter:
-        saturate(var(--dco-deafen-saturate))
-        var(--dco-shadow);
+    opacity:1;
 
 }
