@@ -1,52 +1,41 @@
-/*=============================================================================
-    Discord Character Overlay
-    name.css
-    Version : 1.0.0
-=============================================================================*/
+/* Username test */
 
+.voice_state .voice_username {
 
-/*=========================================================================
-    Username
-=========================================================================*/
+    display: block !important;
 
-.voice_username {
+    visibility: visible !important;
 
-    position:absolute;
+    opacity: 1 !important;
 
-    left:50%;
+    position: absolute !important;
 
-    bottom:
-        calc(
-            var(--character-height)
-            + var(--name-offset-top)
-        );
+    left: 50% !important;
 
-    transform:
-        translateX(-50%);
+    bottom: 0 !important;
 
-    white-space:nowrap;
+    transform: translateX(-50%) !important;
 
-    font-family:
-        var(--name-font);
+    width: max-content !important;
 
-    font-size:
-        var(--name-size);
+    height: auto !important;
 
-    font-weight:
-        var(--name-weight);
+    min-width: 100px !important;
 
-    color:
-        var(--name-color);
+    padding: 5px 10px !important;
 
-    text-shadow:
-        2px 2px 4px var(--dco-name-shadow);
+    color: #ffffff !important;
 
-    -webkit-text-stroke:
-        var(--name-outline-size)
-        var(--name-outline);
+    background: #ff0000 !important;
 
-    z-index:100;
+    font-size: 24px !important;
 
-    pointer-events:none;
+    font-weight: 700 !important;
+
+    line-height: 1.2 !important;
+
+    white-space: nowrap !important;
+
+    z-index: 9999 !important;
 
 }
