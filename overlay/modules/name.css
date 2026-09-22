@@ -5,27 +5,38 @@
 =============================================================================*/
 
 
-/*==========================================================
-    Name Base
-==========================================================*/
+/*=========================================================================
+    Username
+=========================================================================*/
 
-img[class*="Voice_avatar_"] + div span{
+.voice_username {
 
     position:absolute;
 
     left:50%;
 
-    transform:translateX(-50%);
+    bottom:
+        calc(
+            var(--character-height)
+            + var(--name-offset-top)
+        );
+
+    transform:
+        translateX(-50%);
 
     white-space:nowrap;
 
-    font-family:var(--name-font);
+    font-family:
+        var(--name-font);
 
-    font-size:var(--name-size);
+    font-size:
+        var(--name-size);
 
-    font-weight:var(--name-weight);
+    font-weight:
+        var(--name-weight);
 
-    color:var(--name-color);
+    color:
+        var(--name-color);
 
     text-shadow:
         2px 2px 4px var(--dco-name-shadow);
@@ -37,37 +48,5 @@ img[class*="Voice_avatar_"] + div span{
     z-index:100;
 
     pointer-events:none;
-
-}
-
-
-/*==========================================================
-    Odd Player
-==========================================================*/
-
-li[class*="Voice_voiceState_"]:nth-child(odd)
-img[class*="Voice_avatar_"] + div span{
-
-    bottom:
-        calc(
-            var(--character-height)
-            + var(--name-offset-top)
-        );
-
-}
-
-
-/*==========================================================
-    Even Player
-==========================================================*/
-
-li[class*="Voice_voiceState_"]:nth-child(even)
-img[class*="Voice_avatar_"] + div span{
-
-    bottom:
-        calc(
-            var(--character-height)
-            + var(--name-offset-bottom)
-        );
 
 }
