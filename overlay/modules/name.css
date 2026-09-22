@@ -1,41 +1,73 @@
-/* Username test */
+/*=============================================================================
+    Discord Character Overlay
+    name.css
+    Version : 1.0.0
+=============================================================================*/
+
+
+/*=========================================================================
+    Username
+=========================================================================*/
 
 .voice_state .voice_username {
 
-    display: block !important;
+    display:block !important;
 
-    visibility: visible !important;
+    visibility:visible !important;
 
-    opacity: 1 !important;
+    opacity:1 !important;
 
-    position: absolute !important;
+    position:absolute !important;
 
-    left: 50% !important;
+    left:50% !important;
 
-    bottom: 0 !important;
+    bottom:
+        calc(
+            var(--character-height)
+            + var(--name-offset-top)
+        ) !important;
 
-    transform: translateX(-50%) !important;
+    transform:
+        translateX(-50%) !important;
 
-    width: max-content !important;
+    width:max-content !important;
 
-    height: auto !important;
+    height:auto !important;
 
-    min-width: 100px !important;
+    min-width:0 !important;
 
-    padding: 5px 10px !important;
+    padding:0 !important;
 
-    color: #ffffff !important;
+    margin:0 !important;
 
-    background: #ff0000 !important;
+    color:
+        var(--name-color) !important;
 
-    font-size: 24px !important;
+    background:
+        transparent !important;
 
-    font-weight: 700 !important;
+    font-family:
+        var(--name-font) !important;
 
-    line-height: 1.2 !important;
+    font-size:
+        var(--name-size) !important;
 
-    white-space: nowrap !important;
+    font-weight:
+        var(--name-weight) !important;
 
-    z-index: 9999 !important;
+    line-height:1.2 !important;
+
+    white-space:nowrap !important;
+
+    text-shadow:
+        2px 2px 4px var(--dco-name-shadow) !important;
+
+    -webkit-text-stroke:
+        var(--name-outline-size)
+        var(--name-outline);
+
+    z-index:100 !important;
+
+    pointer-events:none !important;
 
 }
