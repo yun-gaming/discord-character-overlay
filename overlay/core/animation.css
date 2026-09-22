@@ -6,15 +6,14 @@
 
 
 /*=========================================================================
-    Character Animation
+    Character Transition
 =========================================================================*/
 
-img[class*="Voice_avatar_"] + div::before{
+.voice_state::before {
 
     transition:
         transform var(--talk-speed) ease,
-        filter var(--talk-speed) ease,
-        opacity var(--talk-speed) ease;
+        filter var(--talk-speed) ease;
 
 }
 
@@ -23,29 +22,22 @@ img[class*="Voice_avatar_"] + div::before{
     Speaking
 =========================================================================*/
 
-img[class*="Voice_avatarSpeaking_"] + div::before{
+.voice_state.wrapper_speaking::before {
 
     transform:
-
         translateX(-50%)
-
         translateX(var(--dco-character-offset-x))
-
         translateY(
             calc(
                 var(--dco-character-offset-y)
-                +
-                var(--talk-y)
+                + var(--talk-y)
             )
         )
-
         scaleX(var(--dco-character-flip))
-
         scale(
             calc(
                 var(--dco-character-scale)
-                *
-                var(--talk-scale)
+                * var(--talk-scale)
             )
         );
 
@@ -60,7 +52,14 @@ img[class*="Voice_avatarSpeaking_"] + div::before{
     Idle
 =========================================================================*/
 
-img[class*="Voice_avatar_"]:not([class*="Voice_avatarSpeaking_"]) + div::before{
+.voice_state:not(.wrapper_speaking)::before {
+
+    transform:
+        translateX(-50%)
+        translateX(var(--dco-character-offset-x))
+        translateY(var(--dco-character-offset-y))
+        scaleX(var(--dco-character-flip))
+        scale(var(--dco-character-scale));
 
     filter:
         brightness(1)
