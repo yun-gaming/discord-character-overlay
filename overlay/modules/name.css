@@ -22,10 +22,7 @@
     left:50% !important;
 
     bottom:
-        calc(
-            var(--character-height)
-            + var(--name-offset-top)
-        ) !important;
+        var(--name-offset-bottom) !important;
 
     transform:
         translateX(-50%) !important;
