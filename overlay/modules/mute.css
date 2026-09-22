@@ -35,11 +35,30 @@
 
 
 /*=========================================================================
-    Normal State
+    Speaker Mute / Deaf
 =========================================================================*/
 
-.voice_state:not(.self_mute)::before {
+.voice_state.self_deaf::before {
+
+    opacity:
+        var(--dco-deafen-opacity);
+
+    filter:
+        saturate(var(--dco-deafen-saturate))
+        var(--dco-shadow);
+
+}
+
+
+/*=========================================================================
+    Normal
+=========================================================================*/
+
+.voice_state:not(.self_mute):not(.self_deaf)::before {
 
     opacity:1;
+
+    filter:
+        var(--dco-shadow);
 
 }
